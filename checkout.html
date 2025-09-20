@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramesh R | Checkout</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <h1 class="logo">Ramesh R</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="checkout container">
+        <h2 class="section-title">Checkout</h2>
+        <form class="checkout-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+            <label for="address">Address</label>
+            <textarea id="address" required></textarea>
+            <label for="payment">Payment Method</label>
+            <select id="payment">
+                <option>Credit Card</option>
+                <option>Debit Card</option>
+                <option>UPI</option>
+                <option>Cash on Delivery</option>
+            </select>
+            <button type="submit" class="btn-primary">Place Order</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Ramesh R. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

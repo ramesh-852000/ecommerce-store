@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramesh R | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <h1 class="logo">Ramesh R</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Discover the Latest Trends</h2>
+            <p>Shop stylish products at the best prices. Upgrade your lifestyle today!</p>
+            <a href="products.html" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="featured container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid" id="featuredProducts"></div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Ramesh R. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Render featured products (first 4)
+        document.addEventListener("DOMContentLoaded", () => {
+            const featured = products.slice(0, 4);
+            const grid = document.getElementById("featuredProducts");
+            featured.forEach(prod => {
+                const div = document.createElement("div");
+                div.classList.add("product-card");
+                div.innerHTML = `
+        <img src="${prod.img}" alt="${prod.name}">
+        <h3>${prod.name}</h3>
+        <p class="price">$${prod.price}</p>
+        <button class="btn-secondary">Add to Cart</button>
+      `;
+                grid.appendChild(div);
+            });
+
+            // Attach add-to-cart
+            document.querySelectorAll(".btn-secondary").forEach(btn => {
+                btn.addEventListener("click", e => {
+                    const card = e.target.closest(".product-card");
+                    const name = card.querySelector("h3").textContent;
+                    const price = parseFloat(card.querySelector(".price").textContent.replace("$", ""));
+                    const img = card.querySelector("img").src;
+                    addToCart({ name, price, img });
+                });
+            });
+            updateCartCount();
+        });
+    </script>
+</body>
+
+</html>
